@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 public abstract class Conta implements IConta{
 
     private static final int AGENCIA_PADRAO = 1;
@@ -30,6 +32,18 @@ public abstract class Conta implements IConta{
         contaDestino.depositar(valor);
     }
 
+    @Override
+    public void imprimirppSaldo() {
+        JOptionPane.showMessageDialog(null, "Saldo poupança:" + this.saldo);
+        System.out.println(String.format("Saldo poupança: %.2f", this.saldo));
+    }
+
+    @Override
+    public void imprimirccSaldo() {
+        JOptionPane.showMessageDialog(null, "Saldo conta corrente:" + this.saldo);
+        System.out.println(String.format("Saldo conta corrente: %.2f", this.saldo));
+    }
+
     public int getAgencia() {
         return agencia;
     }
@@ -47,7 +61,7 @@ public abstract class Conta implements IConta{
         System.out.println(String.format("Titular: %s", this.cliente.getNome()));
         System.out.println(String.format("Agência: %d", this.agencia));
         System.out.println(String.format("Número: %d", this.numero));
-        System.out.println(String.format("Saldo: %.2f", this.saldo));
+
     }
 
 }
